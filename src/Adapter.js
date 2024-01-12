@@ -109,6 +109,8 @@ class Adapter {
 
   /**
    * Init a device instance and returns it.
+   * Caller is responsible of calling cleanup() on the
+   * returned Device before discarding it to free resources.
    * @param {string} uuid - Device Name.
    * @async
    * @returns {Device}

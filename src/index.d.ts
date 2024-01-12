@@ -45,6 +45,7 @@ declare namespace NodeBle {
         disconnect(): Promise<void>;
         gatt(): Promise<GattServer>;
         toString(): Promise<string>;
+        cleanup(): Promise<void>;
 
         on(event: 'connect', listener: (state: ConnectionState) => void): this;
         on(event: 'disconnect', listener: (state: ConnectionState) => void): this;
