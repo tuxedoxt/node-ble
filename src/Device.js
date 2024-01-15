@@ -119,7 +119,7 @@ class Device extends EventEmitter {
    */
   async disconnect () {
     await this.helper.callMethod('Disconnect')
-    this.helper.removeAllListeners('PropertiesChanged') // might be improved
+    await this.cleanup()
   }
 
   /**
@@ -141,6 +141,13 @@ class Device extends EventEmitter {
     const address = await this.getAddress()
 
     return `${name} [${address}]`
+  }
+
+  /**
+   * Cleanup when discarding device object
+   */
+  async cleanup () {
+    this.helper.removeListeners()
   }
 }
 
